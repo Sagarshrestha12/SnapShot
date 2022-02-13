@@ -1,0 +1,46 @@
+{
+  "images": [
+    {
+      "id": "1",
+      "image": "crow.png",
+      "keyword": "crow",
+      "category_type": "bird",
+      "sizes": "200x200"
+    },
+    {
+      "id": "2",
+      "image": "eagle.png",
+      "keyword": "eagle",
+      "category_type": "bird",
+      "sizes": "200x200"
+    },
+    {
+      "id": "3",
+      "image": "parrot.png",
+      "keyword": "parrot",
+      "category_type": "bird",
+      "sizes": "200x200"
+    },
+    {
+      "id": "4",
+      "image": "everest.png",
+      "keyword": "everest",
+      "category_type": "mountain",
+      "sizes": "200x200"
+    },
+    {
+      "id": "5",
+      "image": "k2.png",
+      "keyword": "k2",
+      "category_type": "mountain",
+      "sizes": "200x200"
+    },
+    {
+      "id": "6",
+      "image": "kanchanjang.png",
+      "keyword": "kanchanjang",
+      "category_type": "mountain",
+      "sizes": "200x200"
+    }
+  ]
+}
