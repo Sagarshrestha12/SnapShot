@@ -16,7 +16,7 @@
 }
 
 .search-field {
-  width: 80%;
+  width: 50%;
   margin: 0 auto;
 }
 
@@ -29,4 +29,13 @@
 .search-field > input:focus {
   outline: none;
   box-shadow: 0 0 0.7rem #719ece;
+}
+
+@media only screen and (min-width: 767px) {
+  .search-field > input {
+    width: 87%;
+  }
+  .search-field > button {
+    width: 7%;
+  }
 }

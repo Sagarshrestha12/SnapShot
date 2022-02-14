@@ -30,3 +30,27 @@
   float: left;
   padding-bottom: 1rem;
 }
+
+@media only screen and (min-width: 767px) {
+  .show-image,
+  .show-search-image {
+    margin-top: 4rem;
+  }
+
+  .show-search-image > img {
+    display: block;
+    margin-left: 42%;
+  }
+
+  img.image-list:nth-child(n) {
+    width: 20%;
+    float: left;
+    padding-bottom: 2rem;
+    padding-right: 3.9rem;
+  }
+
+  img.image-list:nth-child(4n + 1) {
+    padding-right: 0rem;
+    float: right;
+  }
+}

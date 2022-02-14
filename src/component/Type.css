@@ -12,3 +12,15 @@
 .type-button:hover {
   background-color: rgb(16, 14, 161);
 }
+
+@media only screen and (min-width: 767px) {
+  .type-button {
+    width: 17%;
+    float: left;
+    margin-right: 3.9rem;
+  }
+  .type-button:last-child {
+    float: right;
+    margin-right: 0;
+  }
+}

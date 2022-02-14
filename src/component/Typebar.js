@@ -2,8 +2,9 @@ import Type from "./Type";
 import "./Typebar.css";
 
 function TypeBar({ imageTypeArr, changeImageList }) {
+  
   return (
-    <div className="typebar">
+    <div className="typebar clearfix">
       {imageTypeArr.map((ele, index) => (
         <Type
           key={index}
