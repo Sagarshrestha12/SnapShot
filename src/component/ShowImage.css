@@ -1,13 +1,24 @@
-.show-image {
+.show-image,
+.show-search-image {
   width: 80%;
   margin: 0 auto;
   text-align: center;
+}
+
+.show-image > img {
+  width: 9rem;
+  height: 9rem;
 }
 
 .image-list {
   width: 9rem;
   height: 9rem;
   display: block;
+}
+
+.show-search-image > img {
+  display: block;
+  margin-left: 27%;
 }
 
 .image-list:nth-child(odd) {

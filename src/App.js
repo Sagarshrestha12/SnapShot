@@ -11,7 +11,7 @@ let currentImageType = 5; //5 indicating all types of images
 function App() {
   const [listimages, filterImage] = useState(images);
   const [imageType, changeImageType] = useState("Images");
-  let imageTypeArr = ["Mountain", "Birds"];
+  let imageTypeArr = ["Mountain", "Birds", "Foods", "Beaches"];
 
   function changeImageList(type) {
     let imageType = imageTypeArr[type];
@@ -20,7 +20,8 @@ function App() {
   }
 
   function findImage(keyword) {
-    changeImageType(keyword);
+    let msg = keyword.charAt(0).toUpperCase() + keyword.slice(1);
+    changeImageType(msg);
     let showImg = images.filter((img) => img.keyword === keyword);
     filterImage(showImg);
     if (showImg.length === 0) {
