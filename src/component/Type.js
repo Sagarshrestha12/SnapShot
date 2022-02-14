@@ -1,6 +1,14 @@
 import "./Type.css";
 
-function Type({ name }) {
-  return <button className="type-button">{name}</button>;
+function Type({ name, type, changeImageList }) {
+  function handleImageType() {
+    changeImageList(type);
+  }
+
+  return (
+    <button className="type-button" onClick={handleImageType}>
+      {name}
+    </button>
+  );
 }
 export default Type;

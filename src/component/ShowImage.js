@@ -1,9 +1,9 @@
 import "./ShowImage.css";
 
 function ShowImage({ type, images }) {
-    
   return (
     <div className="show-image">
+      <h2>{type}</h2>
       {images.map((img) => (
         <img
           className="image-list"

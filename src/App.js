@@ -10,14 +10,20 @@ let currentImageType = 5; //5 indicating all types of images
 
 function App() {
   const [listimages, filterImage] = useState(images);
-  let imageTypeArr = ["Mountain", "beaches", "Birds"];
+  const [imageType, changeImageType] = useState("Images");
+  let imageTypeArr = ["Mountain", "Birds"];
+
+  function changeImageList(type) {
+    let imageType = imageTypeArr[type];
+    filterImage(images.filter((img) => img.category_type === imageType));
+  }
 
   return (
     <div>
       <Header />
       <Search />
-      <Typebar imageTypeArr={imageTypeArr} />
-      <ShowImage type={currentImageType} images={listimages} />
+      <Typebar imageTypeArr={imageTypeArr} changeImageList={changeImageList} />
+      <ShowImage type={imageType} images={listimages} />
     </div>
   );
 }

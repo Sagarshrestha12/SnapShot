@@ -1,12 +1,16 @@
 import Type from "./Type";
 import "./Typebar.css";
 
-function TypeBar({ imageTypeArr }) {
-
+function TypeBar({ imageTypeArr, changeImageList }) {
   return (
     <div className="typebar">
       {imageTypeArr.map((ele, index) => (
-        <Type key={index} name={ele} />
+        <Type
+          key={index}
+          name={ele}
+          type={index}
+          changeImageList={changeImageList}
+        />
       ))}
     </div>
   );
