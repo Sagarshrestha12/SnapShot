@@ -1,7 +1,7 @@
 .search-field > input {
   padding: 0.7rem;
   font-size: 1rem;
-  width: 78%;
+  width: 72%;
   float: left;
 }
 
@@ -10,13 +10,17 @@
   height: 2.2rem;
 }
 
+.search-field > button {
+  width: 15%;
+}
+
 .search-field {
   width: 80%;
   margin: 0 auto;
 }
 
 .clearfix {
-    content: "";
-    clear: both;
-    display: table;
-  }
+  content: "";
+  clear: both;
+  display: table;
+}

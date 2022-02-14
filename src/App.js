@@ -15,13 +15,23 @@ function App() {
 
   function changeImageList(type) {
     let imageType = imageTypeArr[type];
+    changeImageType(imageType);
     filterImage(images.filter((img) => img.category_type === imageType));
+  }
+
+  function findImage(keyword) {
+    changeImageType(keyword);
+    let showImg = images.filter((img) => img.keyword === keyword);
+    filterImage(showImg);
+    if (showImg.length === 0) {
+      changeImageType("Image Not Found");
+    }
   }
 
   return (
     <div>
       <Header />
-      <Search />
+      <Search findImage={findImage} />
       <Typebar imageTypeArr={imageTypeArr} changeImageList={changeImageList} />
       <ShowImage type={imageType} images={listimages} />
     </div>

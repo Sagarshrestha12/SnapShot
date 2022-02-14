@@ -11,11 +11,11 @@
 }
 
 .image-list:nth-child(odd) {
-  float: left;
+  float: right;
   padding-bottom: 1rem;
 }
 
 .image-list:nth-child(even) {
-  float: right;
+  float: left;
   padding-bottom: 1rem;
 }
