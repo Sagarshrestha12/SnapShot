@@ -39,7 +39,7 @@
 
   .show-search-image > img {
     display: block;
-    margin-left: 42%;
+    margin-left: 40%;
   }
 
   img.image-list:nth-child(n) {
