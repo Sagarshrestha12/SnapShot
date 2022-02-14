@@ -1,0 +1,20 @@
+.show-image {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.image-list {
+  width: 9rem;
+  height: 9rem;
+  display: block;
+}
+
+.image-list:nth-child(odd) {
+  float: left;
+  padding-bottom: 1rem;
+}
+
+.image-list:nth-child(even) {
+  float: right;
+  padding-bottom: 1rem;
+}

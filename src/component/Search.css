@@ -3,7 +3,6 @@
   font-size: 1rem;
   width: 78%;
   float: left;
-  background-color: ;
 }
 
 .search-field > button > img {
@@ -15,3 +14,9 @@
   width: 80%;
   margin: 0 auto;
 }
+
+.clearfix {
+    content: "";
+    clear: both;
+    display: table;
+  }
