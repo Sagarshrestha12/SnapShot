@@ -1,5 +1,6 @@
 import "./ShowImage.css";
 import imageNotFound from "../images/image-not-found.png";
+
 function ShowImage({ type, images }) {
   let showImage = images.map((img) => (
     <img
@@ -9,11 +10,11 @@ function ShowImage({ type, images }) {
       alt={img.keyword}
     ></img>
   ));
-  
-  if (images.length === 0) {
+
+  if (!images.length) {
     return (
       <div className="show-image">
-        {<img src={imageNotFound} alt="image_not_found"></img>}
+        <img src={imageNotFound} alt="image_not_found"></img>
         <h3>{type}</h3>
       </div>
     );
