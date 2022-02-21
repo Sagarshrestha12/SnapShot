@@ -1,39 +1,38 @@
 import "./ShowImage.css";
 import imageNotFound from "../images/image-not-found.png";
+import React from "react";
 
 function ShowImage({ type, images }) {
-  let showImage = images.map((img) => (
-    <img
-      className="image-list"
-      key={img.id}
-      src={img.image}
-      alt={img.keyword}
-    ></img>
-  ));
+  let showImage = images.map((ele) => {
+    let loc = `https://farm${ele.farm}.staticflickr.com/${ele.server}/${ele.id}_${ele.secret}_m.jpg`;
+    return <img className="image-list" src={loc} alt="new" key={ele.id}></img>;
+  });
 
   if (!images.length) {
     return (
-      <div className="show-image">
-        <img src={imageNotFound} alt="image_not_found"></img>
-        <h3>{type}</h3>
-      </div>
+      <>
+        <div className="show-image">
+          <img src={imageNotFound} alt="image_not_found"></img>
+        </div>
+        <h2>{type}</h2>
+      </>
     );
   }
 
   if (images.length === 1) {
     return (
-      <div className="show-search-image">
+      <>
         <h2>{type}</h2>
-        {showImage}
-      </div>
+        <div className="show-image">{showImage}</div>
+      </>
     );
   }
 
   return (
-    <div className="show-image">
+    <>
       <h2>{type}</h2>
-      {showImage}
-    </div>
+      <div className="show-image">{showImage}</div>
+    </>
   );
 }
 
