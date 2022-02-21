@@ -1,11 +1,14 @@
 import "./App.css";
 import Header from "./component/Header";
 import Search from "./component/Search";
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Typebar from "./component/Typebar";
 import ShowImage from "./component/ShowImage";
+import loadingImage from "./images/load.gif";
 
+let imageContext;
 function App() {
+  const [loading, setLoading] = useState(false);
   const [load, setLoad] = useState(false);
   const [imageType, changeImageType] = useState("Images");
   const [images, setImages] = useState([]);
@@ -13,29 +16,43 @@ function App() {
   let imageTypeArr = ["Mountain", "Birds", "Foods", "Beaches"];
 
   function changeImageList(type) {
+    setLoading(true);
     let imageType = imageTypeArr[type];
     changeImageType(imageType);
-    filterImage(images.filter((img) => img.category_type === imageType));
+    loadImage(locationOfImage(imageType)).then((photos) => {
+      filterImage(photos);
+      setLoading(false);
+    });
   }
 
   function findImage(keyword) {
+    setLoading(true);
     let msg = keyword.charAt(0).toUpperCase() + keyword.slice(1);
     changeImageType(msg);
-    let showImg = images.filter((img) => img.keyword === keyword);
-    filterImage(showImg);
-    if (showImg.length === 0) {
-      changeImageType("Image Not Found");
-    }
+    loadImage(locationOfImage(keyword)).then((photos) => {
+      filterImage(photos);
+      setLoading(false);
+      if (!photos.length) {
+        changeImageType("Image Not Found");
+      }
+    });
   }
 
   async function loadImage(loc) {
     return await fetch(loc)
       .then((res) => {
-        return res.json();
+        if (res.ok) {
+          return res.json();
+        }
+        throw Error;
       })
       .then((json) => {
         return json.photos.photo;
       });
+  }
+
+  function locationOfImage(tagName) {
+    return `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=636e1481b4f3c446d26b8eb6ebfe7127&tags=[${tagName}]&per_page=24&format=json&nojsoncallback=1`;
   }
 
   useEffect(() => {
@@ -58,7 +75,7 @@ function App() {
   }, []);
 
   if (!load) {
-    return <h1>Loading...</h1>;
+    return <img className="loading" src={loadingImage} alt="loading"></img>;
   }
 
   return (
@@ -66,7 +83,8 @@ function App() {
       <Header />
       <Search findImage={findImage} />
       <Typebar imageTypeArr={imageTypeArr} changeImageList={changeImageList} />
-      <ShowImage type={imageType} images={listimages} />
+      {loading && <h1>Loading...</h1>}
+      {!loading && <ShowImage type={imageType} images={listimages} />}
     </div>
   );
 }
