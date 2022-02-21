@@ -1,30 +1,20 @@
 import search from "../search.svg";
 import "./Search.css";
-import { useState } from "react";
+import { useRef } from "react";
 
 function Search({ findImage }) {
-  let [inputText, changeInputText] = useState("");
-
-  const handleInputText = (event) => {
-    changeInputText(event.target.value);
-  };
+  const inputRefs = useRef(null);
 
   const handleSearchBtn = (event) => {
     event.preventDefault();
-    findImage(inputText.toLocaleLowerCase());
-    changeInputText("");
+    findImage(inputRefs.current.value.toLocaleLowerCase());
+    inputRefs.current.value = "";
   };
 
   return (
     <form onSubmit={handleSearchBtn} className="search-field  clearfix">
       <label> </label>
-      <input
-        type="text"
-        value={inputText}
-        placeholder="Search"
-        onChange={handleInputText}
-        required
-      ></input>
+      <input type="text" placeholder="Search" ref={inputRefs} required></input>
       <button type="submit">
         <img src={search} alt="search-icon"></img>
       </button>
