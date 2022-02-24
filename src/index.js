@@ -3,10 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { UploadContextProvider } from "./context-api/upload-context";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <UploadContextProvider>
+      <App />
+    </UploadContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

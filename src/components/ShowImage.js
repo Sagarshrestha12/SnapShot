@@ -3,9 +3,13 @@ import imageNotFound from "../assets/images/image-not-found.png";
 import React from "react";
 
 function ShowImage({ type, images }) {
+
   let showImage = images.map((ele) => {
     let loc = `https://farm${ele.farm}.staticflickr.com/${ele.server}/${ele.id}_${ele.secret}_m.jpg`;
-    return <img className="image-list" src={loc} alt="new" key={ele.id}></img>;
+
+    return (
+      <img className="image-list" src={loc} alt="pictures" key={ele.id}></img>
+    );
   });
 
   if (!images.length) {

@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import "../assets/css//Type.css";
+import uploadContext from "../context-api/upload-context";
 
-function Type({ name, type, changeImageList }) {
+function Type({ name, type }) {
+  const ctx = useContext(uploadContext);
+
   function handleImageType() {
-    changeImageList(type);
+    ctx.changeImageList(type);
   }
 
   return (

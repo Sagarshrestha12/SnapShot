@@ -1,7 +1,7 @@
 import Type from "./Type";
 import "../assets/css/Typebar.css";
 
-function TypeBar({ imageTypeArr, changeImageList }) {
+function TypeBar({ imageTypeArr}) {
   return (
     <div className="typebar clearfix">
       {imageTypeArr.map((ele, index) => (
@@ -9,7 +9,6 @@ function TypeBar({ imageTypeArr, changeImageList }) {
           key={index}
           name={ele}
           type={index}
-          changeImageList={changeImageList}
         />
       ))}
     </div>
