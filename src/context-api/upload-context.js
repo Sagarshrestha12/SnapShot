@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Link from "../apis/updateLink";
 
 const uploadContext = React.createContext({
   load: false,
@@ -67,15 +68,15 @@ export const UploadContextProvider = (props) => {
   }
 
   function locationOfImage(tagName) {
-    return `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=636e1481b4f3c446d26b8eb6ebfe7127&tags=[${tagName}]&per_page=24&format=json&nojsoncallback=1`;
+    return Link.returnLink(tagName);
   }
 
   useEffect(() => {
     let locationArr = [
-      "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=636e1481b4f3c446d26b8eb6ebfe7127&tags=[mountain]&per_page=24&format=json&nojsoncallback=1",
-      "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=636e1481b4f3c446d26b8eb6ebfe7127&tags=[foods]&per_page=24&format=json&nojsoncallback=1",
-      "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=636e1481b4f3c446d26b8eb6ebfe7127&tags=[birds]&per_page=24&format=json&nojsoncallback=1",
-      "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=636e1481b4f3c446d26b8eb6ebfe7127&tags=[beaches]&per_page=24&format=json&nojsoncallback=1",
+      Link.returnLink("Mountain"),
+      Link.returnLink("Foods"),
+      Link.returnLink("Beaches"),
+      Link.returnLink("Birds"),
     ];
 
     Promise.all(locationArr.map(loadImage)).then((photos) => {
