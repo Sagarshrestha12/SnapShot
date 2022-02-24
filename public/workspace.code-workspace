@@ -1,0 +1,20 @@
+{
+  "folders": [
+	{
+		"path": "../../info"
+	},
+	{
+		"path": "../../eth-supply-chain-master"
+	},
+	{
+		"path": "../../Building-Applications-In-Blockchain-Guide"
+	},
+	{
+		"path": ".."
+	},
+	{
+		"path": "../../inbox"
+	}
+],
+  "settings": {}
+}

@@ -1,5 +1,5 @@
-import "./ShowImage.css";
-import imageNotFound from "../images/image-not-found.png";
+import "../assets/css/ShowImage.css";
+import imageNotFound from "../assets/images/image-not-found.png";
 import React from "react";
 
 function ShowImage({ type, images }) {

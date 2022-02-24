@@ -1,4 +1,4 @@
-import "./Type.css";
+import "../assets/css//Type.css";
 
 function Type({ name, type, changeImageList }) {
   function handleImageType() {

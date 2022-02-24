@@ -1,5 +1,5 @@
-import search from "../search.svg";
-import "./Search.css";
+import search from "../assets/images/search.svg";
+import "../assets/css/Search.css";
 import { useRef } from "react";
 
 function Search({ findImage }) {
